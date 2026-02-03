@@ -44,6 +44,11 @@
             font-weight: bold;
             cursor: pointer;
             position: relative;
+        
+            -webkit-tap-highlight-color: transparent;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
         }
 
         .menu-item:hover {
@@ -75,9 +80,12 @@
             background: #f0f0f0;
         }
 
-        .menu-item.dropdown:hover .dropdown-content {
+        
+
+        .menu-item.dropdown.open .dropdown-content {
             display: block;
         }
+/* (removido) dropdown por hover não funciona bem no iOS */
         /* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
         #inicio {
            position: fixed;
@@ -297,7 +305,7 @@
     <div id="topbar">
         <div class="menu-item" onclick="mostrarMenu()">Menu Inicial</div>
 
-        <div class="menu-item dropdown">
+        <div class="menu-item dropdown" id="dd-provas">
             Provas ▼
 <div class="dropdown-content">
     <div onclick="mostrarIdentificacao(1)">Prova 1 – A Criação</div>
@@ -327,7 +335,7 @@
 
         </div>
 
-        <div class="menu-item dropdown">
+        <div class="menu-item dropdown" id="dd-resultados">
             Resultados ▼
             <div class="dropdown-content" id="menu-resultados">
                 <div>Nenhum resultado disponível</div>
@@ -594,132 +602,132 @@
                 ["Por que o diabo desce à terra com grande ira?", ["Porque perdeu seus anjos", "Porque foi expulso do Éden", "Porque sabe que tem pouco tempo", "Porque perdeu seu poder"], 2],
                 ["Qual verdade espiritual a peleja no céu revela?", ["Os anjos são iguais aos homens", "Deus perdeu o controle por um tempo", "O céu pode ser destruído", "O mal não prevalece contra o propósito de Deus"], 3]
             ],
-            6: [ // Lição 1 – Escrituras
-    ["Qual era a Bíblia que Jesus usava?", ["O Novo Testamento","Apenas o Pentateuco","A Lei e os Profetas (o Antigo Testamento)"],2],
-    ["Quem levou os profetas a escrever o livro sagrado?", ["Os anjos","O Espírito Santo","Os sábios antigos"],1],
-    ["Quais são os benefícios trazidos pelo estudo da Bíblia?", ["A Bíblia não traz benefícios, apenas contém informações","É útil para o ensino, para repreensão e para educação na justiça","Quem estuda a Bíblia não precisa de repreensão"],1],
-    ["Por quanto tempo a Palavra de Deus teria validade?", ["Para sempre","Apenas os evangelhos são relevantes para os nossos dias","O Antigo Testamento não tem mais valor"],0]
-  ],
+                        6: [ // Lição 1 – O que JESUS ensinou sobre as ESCRITURAS
+              ["Qual era a Bíblia que Jesus usava? Mateus 5:17; 7:12.", ["O Novo Testamento.", "Apenas o Pentateuco.", "“A Lei e os Profetas” (o Antigo Testamento)."], 2],
+              ["Quem levou os profetas a escrever o livro sagrado? 2 Pedro 1:21.", ["Os anjos.", "O Espírito Santo.", "Os sábios antigos."], 1],
+              ["Quais são os benefícios trazidos pelo estudo da Bíblia? 2 Timóteo 3:15-17.", ["A Bíblia não traz benefícios, apenas contém informações.", "É útil para o ensino, para repreensão e para educação na justiça.", "Quem estuda a Bíblia não precisa de repreensão."], 1],
+              ["Por quanto tempo a Palavra de Deus teria validade? Mateus 24:35; Isaías 40:8.", ["Para sempre.", "Apenas os evangelhos são relevantes para os nossos dias.", "O Antigo Testamento não tem mais valor."], 0]
+            ],
 
-  7: [ // Lição 2 – Salvação
-    ["Qual é a situação da natureza humana após o pecado?", ["Nosso coração é corrupto","O pecado traz separação entre a criatura e seu Criador","Todas as alternativas estão corretas"],2],
-    ["Que plano Deus estabeleceu para salvar o ser humano da morte eterna?", ["O pecado é tão terrível que não há solução para ele","Deus escreveu diversas normas e leis para nos salvar do pecado","Deus enviou Seu Filho para morrer em nosso lugar"],2],
-    ["A salvação depende de nossas obras?", ["Sim. As obras somam pontos para a nossa salvação","Não. Somos salvos pela graça de Deus independente das obras","Somos justificados unicamente pelas obras da lei"],1],
-    ["Como o ser humano pode alcançar a salvação?", ["Devemos apenas crer e confiar em Cristo","Através da prática das boas obras","Fazendo penitências e jejuns"],0]
-  ],
+            7: [ // Lição 2 – O QUE JESUS ENSINOU SOBRE A SALVAÇÃO
+              ["Qual é a situação da natureza humana após o pecado? Gênesis 6:5; Salmo 51:5; Mateus 15:19.", ["Nosso coração é corrupto.", "O pecado traz separação entre a criatura e seu Criador.", "Todas as alternativas estão corretas."], 2],
+              ["Que plano Deus estabeleceu para salvar o ser humano da morte eterna? João 3:16.", ["O pecado é tão terrível que não há solução para ele.", "Deus escreveu diversas normas e leis para nos salvar do pecado.", "Deus enviou Seu Filho para morrer em nosso lugar."], 2],
+              ["A salvação depende de nossas obras? Efésios 2:8, 9; Gálatas 2:16.", ["Sim. As obras somam pontos para a nossa salvação.", "Não. Somos salvos pela graça de Deus independente das obras.", "Somos justificados unicamente pelas obras da lei."], 1],
+              ["Como o ser humano pode alcançar a salvação? Atos 16:31; 1 João 5:11, 12.", ["Devemos apenas crer e confiar em Cristo.", "Através da prática das boas obras.", "Fazendo penitências e jejuns."], 0]
+            ],
 
-  8: [ // Lição 3 – Santificação
-    ["Que oração Jesus fez pelos discípulos?", ["Santifica-os através dos ritos religiosos","Santifica-os na verdade; a Tua Palavra é a verdade","Nenhuma das alternativas está correta"],1],
-    ["Por que precisamos da santificação?", ["Pouco necessária; Deus não está preocupado com isso","É essencial: sem santificação também não há salvação","Tanto faz: a necessidade está ligada aos nossos sentimentos"],1],
-    ["De quem é a obra de santificar?", ["A obra é unicamente humana","A santificação ocorre mediante a meditação transcendental","A obra é divina, mediante a atuação do Espírito Santo no coração"],2],
-    ["Qual o conselho que o apóstolo Pedro nos dá?", ["Cristianismo envolve apenas a prática, não o conhecimento","Devemos crescer na graça e no conhecimento de Jesus","Quem aceitou a Jesus, não precisa mais guardar a lei"],1]
-  ],
+            8: [ // Lição 3 – O QUE JESUS ENSINOU SOBRE A SANTIFICAÇÃO
+              ["Que oração Jesus fez pelos discípulos? João 17:17.", ["Santifica-os através dos ritos religiosos.", "“Santifica-os na verdade; a Tua Palavra é a verdade.”", "Nenhuma das alternativas está correta."], 1],
+              ["Por que precisamos da santificação? Hebreus 12:14.", ["Pouco necessária; Deus não está preocupado com isso.", "É essencial: sem santificação também não há salvação.", "Tanto faz: a necessidade está ligada aos nossos sentimentos."], 1],
+              ["De quem é a obra de santificar? 1 Tessalonicenses 5:23.", ["A obra é unicamente humana.", "A santificação ocorre mediante a meditação transcendental.", "A obra é divina, mediante a atuação do Espírito Santo no coração."], 2],
+              ["Qual o conselho que o apóstolo Pedro nos dá? 2 Pedro 3:18.", ["Cristianismo envolve apenas a prática, não o conhecimento.", "Devemos crescer na graça e no conhecimento de Jesus.", "Quem aceitou a Jesus, não precisa mais guardar a lei."], 1]
+            ],
 
-  9: [ // Lição 4 – Espírito Santo
-    ["Que promessa Jesus fez aos discípulos?", ["O Espírito Santo seria enviado pelo Pai","O Espírito Santo também é chamado de Consolador e Espírito da verdade","Todas as alternativas estão corretas"],2],
-    ["Qual seria a obra do Espírito Santo?", ["Ensinar que o Antigo Testamento não tem mais valor","Ensinar toda a verdade e nos convencer do pecado, da justiça e do juízo","Mostrar que a graça de Deus nos libera para pecarmos"],1],
-    ["A quem Deus concede exclusivamente Seu Espírito?", ["Aqueles que obedecem a Deus","Aqueles que falam a língua dos anjos","Aqueles que frequentam a igreja semanalmente"],0],
-    ["Segundo Jesus, para qual pecado não haveria perdão?", ["Adultério","Homicídio","O pecado contra o Espírito Santo"],2]
-  ],
+            9: [ // Lição 4 – O QUE JESUS ENSINOU SOBRE O ESPÍRITO SANTO
+              ["Que promessa Jesus fez aos discípulos? João 14:16, 17.", ["O Espírito Santo seria enviado pelo Pai.", "O Espírito Santo também é chamado de “Consolador” e “Espírito da verdade”.", "Todas as alternativas estão corretas."], 2],
+              ["Qual seria a obra do Espírito Santo? João 14:26; 16:8, 13.", ["Ensinar que o Antigo Testamento não tem mais valor.", "Ensinar toda a verdade e nos convencer do pecado, da justiça e do juízo.", "Mostrar que a graça de Deus nos libera para pecarmos."], 1],
+              ["A quem Deus concede exclusivamente Seu Espírito? Atos 5:32.", ["Àqueles que obedecem a Deus.", "Àqueles que falam a língua dos anjos.", "Àqueles que frequentam a igreja semanalmente."], 0],
+              ["Segundo Jesus, para qual pecado não haveria perdão? Mateus 12:31, 32.", ["Adultério.", "Homicídio.", "O pecado contra o Espírito Santo."], 2]
+            ],
 
-  10: [ // Lição 5 – Oração
-    ["Que pedido os discípulos fizeram a Jesus?", ["Pediram um lugar especial no reino","Ensina-nos a orar","Pediram poder sobrenatural"],1],
-    ["Que oração Jesus ensinou aos discípulos?", ["A oração dominical (oração-modelo)","O Pai Nosso é a única oração","A oração-modelo não serve de parâmetro"],0],
-    ["Que tipo de oração Jesus ensinou no Sermão do Monte?", ["A oração nas praças","A oração particular ou secreta","A oração nos cultos da igreja"],1],
-    ["Que promessa Jesus fez com relação às nossas petições?", ["Tudo o que pedirdes em oração, crendo, recebereis","Jesus concede sem pedirmos","Tudo o que queremos será concedido"],0]
-  ],
+            10: [ // Lição 5 – O QUE JESUS ENSINOU SOBRE A ORAÇÃO
+              ["Que pedido os discípulos fizeram a Jesus? Lucas 11:1.", ["Pediram um lugar especial no reino messiânico.", "“Ensina-nos a orar”.", "Pediram poder sobrenatural para realizar sinais e prodígios."], 1],
+              ["Que oração Jesus ensinou aos discípulos? Lucas 11:2-4.", ["A oração dominical, ou “oração-modelo”.", "O “Pai Nosso” é a única oração que deve ser feita.", "A “oração-modelo” não serve de parâmetro, pois nossas orações devem ser livres."], 0],
+              ["Que tipo de oração Jesus ensinou no Sermão do Monte? Mateus 6:5-8.", ["A oração nas praças.", "A oração particular ou secreta.", "A oração feita nos cultos da igreja."], 1],
+              ["Que promessa maravilhosa Jesus fez com relação às nossas petições? Mateus 21:22.", ["“E tudo quanto pedirdes em oração, crendo, recebereis”.", "Jesus nos concede todas as bênçãos sem pedirmos.", "Tudo o que queremos será concedido."], 0]
+            ],
 
-  11: [ // Lição 6 – Perdão
-    ["Que oração Davi fez depois de haver pecado contra Deus?", ["Reconheceu o pecado e o confessou a Deus","Confessou ao sacerdote, não a Deus","Agradeceu por ignorar a transgressão"],0],
-    ["Quem somente pode perdoar pecados?", ["Um líder religioso","Não existe pecado, pois não existe lei","Jesus Cristo"],2],
-    ["O que é necessário, segundo a Bíblia, para se alcançar a remissão dos pecados?", ["Arrepender-se dos pecados","Arrependimento é obra divina no coração","Arrependimento não é condição"],0],
-    ["Quantas vezes devo perdoar a quem me ofende?", ["Três vezes","Sete vezes","Até setenta vezes sete"],2]
-  ],
+            11: [ // Lição 6 – O QUE JESUS ENSINOU SOBRE O PERDÃO
+              ["Que oração Davi fez depois de haver pecado contra Deus? Salmo 51:1, 2, 10.", ["Reconheceu o pecado cometido e o confessou a Deus.", "Confessou seus pecados ao sacerdote, não a Deus.", "Davi agradeceu a Deus por ignorar a sua transgressão."], 0],
+              ["Quem somente pode perdoar pecados? Salmo 130:4; Marcos 2:7.", ["Um líder religioso consagrado ao ministério.", "Não existe pecado, pois não existe lei.", "Jesus Cristo."], 2],
+              ["O que é necessário, segundo a Bíblia, para se alcançar a remissão dos pecados? Atos 2:38.", ["Antes de irmos a Cristo, precisamos nos arrepender dos pecados.", "Precisamos do verdadeiro arrependimento, que é uma obra divina no coração.", "O arrependimento não é uma condição para recebermos o perdão de Deus."], 0],
+              ["Quantas vezes devo perdoar a quem me ofende? Mateus 18:21, 22.", ["Três vezes, conforme o ensinamento na época de Cristo.", "Sete vezes, que é o número da perfeição.", "“Até setenta vezes sete”, ou seja, perdoar da mesma forma como Deus nos perdoa."], 2]
+            ],
 
-  12: [ // Lição 7 – Dinheiro
-    ["Como o dízimo era usado em Israel?", ["Destinado à tribo de Levi","Apenas o sumo sacerdote tinha direito","Era herança para as tribos"],0],
-    ["O que Paulo afirma sobre o sustento do ministério evangélico?", ["O dízimo sustenta quem trabalha no ministério","Servos se sustentam do próprio templo","Todas as alternativas estão corretas"],2],
-    ["Além do dízimo, o que mais devemos trazer ao Senhor?", ["Ofertas voluntárias proporcionais às bênçãos","Deus não precisa, então não levamos","Ofertas definidas pela bênção desejada"],0],
-    ["Para Jesus, qual é a essência da verdadeira oferta?", ["Dar o que sobra","Entrega do coração","Demonstra status econômico"],1]
-  ],
+            12: [ // Lição 7 – O QUE JESUS ENSINOU SOBRE O DINHEIRO
+              ["Como o dízimo era usado em Israel? Números 18:21.", ["Era destinado à tribo de Levi, que servia ao Senhor em tempo integral.", "Apenas o sumo sacerdote tinha direito ao dízimo.", "Era destinado como herança para as tribos de Israel."], 0],
+              ["O que Paulo afirma sobre o sustento do ministério evangélico? 1 Coríntios 9:13, 14.", ["O dízimo é destinado àqueles que trabalham em tempo integral para Deus.", "Os que prestam serviços sagrados se sustentam do próprio templo.", "Todas as alternativas estão corretas."], 2],
+              ["Além do dízimo, o que mais devemos trazer ao Senhor? Salmos 96:8; Malaquias 3:8.", ["Ofertas de gratidão que são voluntárias e proporcionais às bênçãos divinas.", "Deus não precisa das nossas ofertas, por isso, não precisamos levá-las à igreja.", "Ofertas definidas de acordo com a bênção que desejamos ganhar de Deus."], 0],
+              ["Para Jesus, qual é a essência da verdadeira oferta? Lucas 21:1-4.", ["Deus quer o que sobra, não o que é dado com sacrifício.", "A essência não está na quantidade, mas na entrega do coração.", "A oferta demonstra o status econômico que possuímos."], 1]
+            ],
 
-  13: [ // Lição 8 – Sua Volta
-    ["Jesus ensinou que Sua volta seria um evento secreto?", ["Sim, secreta e arrebatamento secreto","Não, literal, visível e audível","Será invisível e espiritual"],1],
-    ["O que acontecerá com os justos que estiverem vivos?", ["Arrebatados secretamente","Irão ao céu com corpo mortal","Transformados num abrir e fechar de olhos"],2],
-    ["O que acontecerá com os ímpios que estiverem vivos?", ["Segunda chance","Mortos pela manifestação de Cristo","Nenhuma alternativa"],1],
-    ["O que acontecerá com os justos que estiverem mortos?", ["Ressuscitarão incorruptíveis e imortais","Não haverá ressurreição","Ressurreição só do espírito"],0]
-  ],
+            13: [ // Lição 8 – O QUE JESUS ENSINOU SOBRE SUA VOLTA
+              ["Jesus ensinou que Sua volta seria um evento secreto? Mateus 24:27; Apocalipse 1:7.", ["Sim, Jesus virá secretamente e arrebatará da mesma forma os salvos.", "Não, Jesus voltará de forma literal, visível e audível, com grande poder e glória.", "A volta de Jesus será invisível, pois será espiritual e não corporal."], 1],
+              ["O que acontecerá com os justos que estiverem vivos? 1 Coríntios 15:51-53.", ["Serão arrebatados secretamente.", "Irão para o Céu com o corpo mortal.", "Serão transformados num “abrir e fechar de olhos”."], 2],
+              ["O que acontecerá com os ímpios que estiverem vivos? 2 Tessalonicenses 2:8.", ["Estarão tranquilos, pois terão uma segunda chance de arrependimento.", "Serão mortos pela manifestação da vinda de Cristo.", "Nenhuma das alternativas está correta."], 1],
+              ["O que acontecerá com os justos que estiverem mortos? 1 Tessalonicenses 4:15, 16.", ["Serão ressuscitados com o corpo incorruptível e imortal.", "Não haverá ressurreição, pois os justos já estarão no Céu.", "Não existe ressurreição do corpo, mas do espírito."], 0]
+            ],
 
-  14: [ // Lição 9 – Morte
-    ["A que Jesus comparou a morte de Lázaro?", ["Início da reencarnação","Um sono","Entrada do mundo espiritual"],1],
-    ["Segundo a Bíblia, o ser humano é mortal ou imortal?", ["Mortal, pois somos pecadores","Corpo morre, espírito permanece vivo","Mesmo após o pecado não perdemos imortalidade"],0],
-    ["Como a Bíblia descreve o estado dos mortos?", ["Não falam, não sentem e não se lembram de nada","Alma sair do corpo e continuar viva não é bíblico","Todas as alternativas estão corretas"],2],
-    ["O que acontece na morte do ser humano?", ["Pó volta à terra e fôlego volta a Deus","Espírito vaga extracorpóreo","Apenas corpo morre; alma é imortal"],0]
-  ],
+            14: [ // Lição 9 – O QUE JESUS ENSINOU SOBRE A MORTE
+              ["A que Jesus comparou a morte de Lázaro? João 11:11-13.", ["Ao início do processo de reencarnação.", "A um sono.", "A entrada do mundo espiritual."], 1],
+              ["Segundo a Bíblia, o ser humano é mortal ou imortal? Ezequiel 18:4, 20.", ["Mortal, pois somos pecadores.", "O corpo morre, mas o espírito permanece vivo.", "Mesmo após a entrada do pecado, não perdemos a imortalidade."], 0],
+              ["Como a Bíblia descreve o estado dos mortos? Salmo 6:5; Eclesiastes 9:5.", ["Os mortos não falam, não têm sentimentos e não se lembram de nada.", "A ideia de que a alma sai do corpo e continua viva não é bíblica.", "Todas as alternativas estão corretas."], 2],
+              ["O que acontece na morte do ser humano? Gênesis 3:19; Salmo 146:4; Eclesiastes 12:7.", ["O pó volta para a terra e o espírito (fôlego de vida) volta para Deus.", "O espírito continua vagando, pois é uma entidade extracorpórea.", "Apenas o corpo morre. A alma é imortal."], 0]
+            ],
 
-  15: [ // Lição 10 – Ressurreição
-    ["O que Jesus ensinou sobre a ressurreição?", ["Duas ressurreições: vida e juízo","Recompensa na hora da morte","Apenas uma ressurreição"],0],
-    ["Quando ocorrerá a primeira ressurreição e quem ressuscitará nela?", ["Dos ímpios","Dos justos na volta de Jesus","Volta secreta e só espiritual"],1],
-    ["Quando ocorrerá a segunda ressurreição e quem ressuscitará nela?", ["Durante os mil anos","Ímpios antes dos mil anos","Após os mil anos, os ímpios"],2],
-    ["O que acontecerá com os ímpios que ressuscitarem?", ["Cercarão a Nova Jerusalém","Serão destruídos pelo fogo de Deus","Todas as alternativas estão corretas"],2]
-  ],
+            15: [ // Lição 10 – O QUE JESUS ENSINOU SOBRE A RESSURREIÇÃO
+              ["O que Jesus ensinou sobre a ressurreição? João 5:28, 29.", ["Haverá duas ressurreições: a primeira, da vida; e a segunda, do juízo.", "Cada pessoa receberá sua recompensa na hora da morte.", "Haverá apenas uma ressurreição."], 0],
+              ["Quando ocorrerá a primeira ressurreição e quem ressuscitará nela? 1 Tessalonicenses 4:16.", ["A primeira ressurreição será de todos ímpios, pois verão a volta de Jesus.", "A primeira ressurreição será dos justos e ocorrerá na volta de Jesus.", "Jesus voltará secretamente, por isso a ressurreição será apenas espiritual."], 1],
+              ["Quando ocorrerá a segunda ressurreição e quem ressuscitará nela? Apocalipse 20:5, 6.", ["Durante os mil anos, os ímpios serão ressuscitados e permanecerão na Terra.", "Todos os ímpios ressuscitarão na volta de Jesus, antes dos mil anos.", "Após os mil anos, os ímpios de todas as eras serão ressuscitados."], 2],
+              ["O que acontecerá com os ímpios que ressuscitarem? Apocalipse 20:7-10.", ["Marcharão pela superfície da terra e cercarão a Nova Jerusalém.", "Serão destruídos pelo fogo enviado por Deus.", "Todas as alternativas estão corretas."], 2]
+            ],
 
-  16: [ // Lição 11 – Juízo
-    ["Quantos deverão enfrentar o juízo divino?", ["Apenas os justos","Apenas os ímpios","Todas as pessoas"],2],
-    ["Por quais coisas as pessoas serão julgadas?", ["Obras boas e más","Obras escondidas também","Todas as alternativas estão corretas"],2],
-    ["Qual será a norma usada por Deus no juízo?", ["Sinceridade","Lei de Deus","Quantidade de dízimos e ofertas"],1],
-    ["Que forte apelo o apóstolo Pedro faz a nós?", ["Viver em santo procedimento e piedade","Não haverá julgamento","Ter medo do juízo pois só condena"],0]
-  ],
+            16: [ // Lição 11 – O QUE JESUS ENSINOU SOBRE O JUÍZO
+              ["Quantos deverão enfrentar o juízo divino? 2 Coríntios 5:10.", ["Apenas os justos.", "Apenas os ímpios.", "Todas as pessoas."], 2],
+              ["Por quais coisas as pessoas serão julgadas? Eclesiastes 12:13, 14; Mateus 12:36, 37.", ["Deus julgará as obras boas e más.", "No juízo divino até as obras escondidas serão levadas em conta.", "Todas as alternativas estão corretas."], 2],
+              ["Qual será a norma usada por Deus no juízo? Eclesiastes 12:13; Tiago 1:25; 2:10-12.", ["A sinceridade.", "A lei de Deus.", "A quantidade de dízimos e ofertas que devolvemos."], 1],
+              ["Que forte apelo o apóstolo Pedro faz a nós? 2 Pedro 3:7, 11-13.", ["Devemos viver em santo procedimento e piedade.", "Deus não quer que ninguém pereça, por isso não haverá julgamento.", "Devemos ter medo do juízo, pois ele serve apenas para condenar."], 0]
+            ],
 
-  17: [ // Lição 12 – Lei
-    ["O que Cristo ensinou a respeito da lei?", ["Abolir a lei","Lei caducou","Cumprir a lei, praticá-la"],2],
-    ["Cristo guardou a Lei?", ["Sim, apenas porque era judeu","Sim, guardou os mandamentos e permaneceu no amor do Pai","Não. A lei teve fim no AT"],1],
-    ["O que Jesus ensinou sobre a obediência aos mandamentos?", ["Se amamos a Cristo, guardaremos os Seus mandamentos","São penosos e difíceis","Obediência é irrelevante"],0],
-    ["Se a lei não foi abolida, qual é sua função?", ["Conduzir o pecador a Cristo","Pela lei vem o conhecimento do pecado","Todas as alternativas estão corretas"],2]
-  ],
+            17: [ // Lição 12 – O QUE JESUS ENSINOU SOBRE A LEI
+              ["O que Cristo ensinou a respeito da lei? Mateus 5:17, 18.", ["Cristo veio para abolir a lei.", "A lei já caducou, mas o ensinamento dos profetas ainda permanece.", "Cristo veio para cumprir a lei, ou seja, praticá-la."], 2],
+              ["Cristo guardou a Lei? João 15:10.", ["Sim, mas apenas porque era judeu.", "Sim. Cristo guardou os mandamentos do Pai e permaneceu no amor Dele.", "Não. A lei teve fim no Antigo Testamento."], 1],
+              ["O que Jesus ensinou sobre a obediência aos mandamentos? João 14:15, 21.", ["Se amamos a Cristo, guardaremos os Seus mandamentos.", "Os mandamentos são penosos e difíceis de serem guardados.", "A obediência é irrelevante, pois o que vale é o amor de Deus."], 0],
+              ["Se a lei de Deus não foi abolida, qual é a sua função? Gálatas 3:24; Romanos 3:20; 7:7.", ["Conduzir o pecador a Cristo.", "Pela lei vem o pleno conhecimento do pecado.", "Todas as alternativas estão corretas."], 2]
+            ],
 
-  18: [ // Lição 13 – Sábado
-    ["Como Jesus engrandeceu a lei?", ["Nunca abordou a lei","Mostrou natureza espiritual e eterna","Letra é mais importante"],1],
-    ["O que Jesus disse acerca do quarto mandamento?", ["Filho do Homem é Senhor do sábado","Sábado foi abolido","Pode guardar qualquer dia"],0],
-    ["Jesus alguma vez transgrediu o sábado?", ["Sim, curou nesse dia","Sim, graça maior que sábado","Não, mostrou fazer o bem no sábado"],2],
-    ["Que profecia em Daniel envolve a lei de Deus?", ["Lei abolida na cruz","O próprio Deus mudaria a lei","Pequeno chifre mudaria a lei"],2]
-  ],
+            18: [ // Lição 13 – O QUE JESUS ENSINOU SOBRE O SÁBADO
+              ["Como Jesus engrandeceu a lei? Mateus 5:21, 22, 27, 28.", ["Em Seus discursos, Jesus nunca abordou o assunto da lei.", "Jesus mostrou a natureza espiritual da lei e tornou claro que ela é eterna.", "Ele mostrou que a “letra da lei” é mais importante do que sua natureza espiritual."], 1],
+              ["O que Jesus disse acerca do quarto mandamento da lei? Marcos 2:27, 28.", ["O Filho do Homem também é Senhor do sábado.", "O sábado foi abolido.", "O homem pode guardar qualquer dia da semana."], 0],
+              ["Jesus alguma vez transgrediu o sábado? Marcos 3:2-5.", ["Sim, pois Ele realizou diversas curas nesse dia.", "Sim, Jesus mostrou que a graça é maior que o sábado.", "Não. Ao curar no sábado, Jesus mostrou que devemos fazer o bem nesse dia."], 2],
+              ["Que profecia em Daniel envolve a lei de Deus? Daniel 7:25, 8:12.", ["A lei seria abolida na cruz.", "O próprio Deus mudaria a Sua lei.", "Um “pequeno chifre” (poder religioso) mudaria a lei."], 2]
+            ],
 
-  19: [ // Lição 14 – Igreja
-    ["Quem é o fundador da igreja cristã?", ["Pedro","Paulo","Jesus Cristo"],2],
-    ["Quem Paulo reconhece como fundamento da igreja?", ["Cristo pedra angular e apóstolos/profetas edificaram","Fariseus e saduceus","Deus não tem igreja na Terra"],0],
-    ["Qual é o grande desejo de Cristo para Sua igreja?", ["Igreja igual ao mundo","Igreja livre","Igreja pura, santa, que revela caráter"],2],
-    ["Quais são as características bíblicas da igreja verdadeira?", ["Guarda mandamentos","Tem Espírito de Profecia","Todas as alternativas estão corretas"],2]
-  ],
+            19: [ // Lição 14 – O QUE JESUS ENSINOU SOBRE A IGREJA
+              ["Quem é o fundador da igreja cristã? Mateus 16:16, 18.", ["Pedro.", "Paulo.", "Jesus Cristo."], 2],
+              ["Quem o apóstolo Paulo reconhece como o fundamento da igreja? Efésios 2:19-21.", ["Cristo é a pedra angular, e os apóstolos e profetas edificaram seus fundamentos.", "Os fariseus e saduceus, que mantinham a religião judaica.", "Deus não tem uma igreja na Terra, por isso não há nenhum fundamento."], 0],
+              ["Qual é o grande desejo de Cristo para Sua igreja? Efésios 5:27.", ["Cristo quer uma igreja igual ao mundo, defeituosa, que ama os prazeres.", "Cristo quer uma igreja livre e que faz o que bem entende.", "Cristo quer uma igreja pura, santa, que revela Seu caráter."], 2],
+              ["Quais são as características bíblicas da igreja verdadeira?", ["Guarda todos os mandamentos da lei de Deus (Apocalipse 12:17; 14:12).", "Tem o testemunho de Jesus que é o Espírito de Profecia (Apocalipse 12:17; 19:10).", "Todas as alternativas estão corretas."], 2]
+            ],
 
-  20: [ // Lição 15 – Profetas
-    ["A que Jesus comparou os falsos profetas?", ["Sepulcros caiados","Raça de víboras","Lobos roubadores disfarçados em ovelhas"],2],
-    ["O que Joel profetizou sobre os dias finais?", ["Espírito só no Pentecostes","Espírito retirado dos justos","Espírito derramado e dom de profecia concedido"],2],
-    ["Quais são as duas características da igreja verdadeira?", ["Guarda mandamentos e tem espírito de profecia","Dom de línguas e milagres","Imortalidade da alma e domingo"],0],
-    ["Quais são os testes bíblicos para verdadeiro profeta?", ["Harmonia com a Bíblia","Conhecido pelos frutos","Todas as alternativas estão corretas"],2]
-  ],
+            20: [ // Lição 15 – O QUE JESUS ENSINOU SOBRE OS PROFETAS
+              ["A que Jesus comparou os falsos profetas? Mateus 7:15.", ["Sepulcros caiados.", "Raça de víboras.", "Lobos roubadores disfarçados em ovelhas."], 2],
+              ["O que Joel profetizou sobre os dias finais da história humana? Joel 2:28-32.", ["O Espírito Santo seria derramado apenas no Pentecostes.", "Joel mencionou que o Espírito Santo seria retirado dos justos.", "O Espírito será derramado e o dom de profecia será concedido."], 2],
+              ["Quais são as duas características da igreja verdadeira? Apocalipse 12:17; 19:10.", ["Guarda os mandamentos de Deus e tem espírito de profecia (dom profético).", "Recebe o dom de línguas e opera milagres.", "Ensina a imortalidade da alma e o domingo como dia de guarda."], 0],
+              ["Quais são os testes bíblicos para um verdadeiro profeta?", ["Tudo que ensina deve estar em harmonia com a Bíblia (Isaías 8:20).", "É conhecido por seus frutos (Mateus 7:20).", "Todas as alternativas estão corretas."], 2]
+            ],
 
-  21: [ // Lição 16 – Batismo
-    ["Que circunstâncias envolveram o batismo de Jesus?", ["Batizado por imersão","Sem pecado, mas exemplo","Todas as alternativas estão corretas"],2],
-    ["Jesus via o batismo como condição para a salvação?", ["Não","Sim, nascer da água e do Espírito","Não, invenção das igrejas"],1],
-    ["Em nome de quem as pessoas devem ser batizadas?", ["Em nome da igreja","Em nome do líder religioso","Em nome do Pai, do Filho e do Espírito Santo"],2],
-    ["A partir de qual idade pode-se receber o batismo?", ["Recém-nascidos","Aos quatro anos","Quando tiver idade para entender e aceitar o plano"],2]
-  ],
+            21: [ // Lição 16 – O QUE JESUS ENSINOU SOBRE O BATISMO
+              ["Que circunstâncias envolveram o batismo de Jesus? Mateus 3:13-17.", ["Jesus foi batizado por imersão, ou seja, foi mergulhado e “logo saiu da água”.", "Jesus não tinha pecados, mas foi batizado para nos dar o exemplo.", "Todas as alternativas estão corretas."], 2],
+              ["Jesus via o batismo como condição para a salvação? Marcos 16:16; João 3:5.", ["Não. O que importa é aceitar a Jesus e permanecer na velha vida.", "Sim. Quem não nasce da água e do Espírito não pode entrar no reino de Deus.", "Não. O batismo é invenção das igrejas e não é necessário."], 1],
+              ["Em nome de quem as pessoas devem ser batizadas? Mateus 28:19-20.", ["Em nome da igreja.", "Em nome do líder religioso.", "Em nome do Pai, do Filho e do Espírito Santo."], 2],
+              ["A partir de qual idade pode-se receber o batismo? Atos 22:16.", ["Recém-nascidos já podem ser batizados.", "Aos quatro anos de idade.", "Quando tiver idade para entender e aceitar o plano de salvação em Cristo Jesus."], 2]
+            ],
 
-  22: [ // Lição 17 – Cuidado com o corpo
-    ["O que Jesus deseja para cada um de nós?", ["Não se importa com corpo","Vida em abundância","Vida em abundância é prosperidade financeira"],1],
-    ["O que Paulo ensinou sobre cuidar do corpo?", ["Somos livres para cuidar como quisermos","Corpo pertence a nós","Corpo é templo do Espírito Santo"],2],
-    ["Qual foi a alimentação que Deus ofereceu ao ser humano ao criá-lo?", ["Apenas vegetais","Carne vermelha","Peixes e mariscos"],0],
-    ["O que Jesus deseja para cada um de Seus filhos?", ["Apenas saúde espiritual","Saúde e nenhuma enfermidade sobre nós","Gastar recursos em médicos e remédios"],1]
-  ],
+            22: [ // Lição 17 – O QUE JESUS ENSINOU SOBRE O CUIDADO COM O CORPO
+              ["O que Jesus deseja para cada um de nós? João 10:10.", ["Jesus não Se importa com nosso corpo, apenas com a vida espiritual.", "Jesus deseja que tenhamos vida em abundância.", "A “vida em abundância” mencionada por Jesus significa prosperidade financeira."], 1],
+              ["O que Paulo ensinou sobre o cuidado com nosso corpo? 1 Coríntios 6:19-20.", ["Somos livres para cuidarmos do corpo da forma como acharmos melhor.", "O corpo pertence a nós mesmos, não a Deus.", "O corpo é o templo do Espírito Santo."], 2],
+              ["Qual foi a alimentação que Deus ofereceu ao ser humano assim que o criou? Gênesis 1:29; 2:9", ["Apenas vegetais.", "Carne vermelha", "Peixes e mariscos."], 0],
+              ["O que Jesus deseja para cada um de Seus filhos? Êxodo 15:26; 3 João 2.", ["Deseja apenas a nossa saúde espiritual.", "Deseja que tenhamos saúde e que nenhuma enfermidade venha sobre nós.", "Jesus quer que gastemos todos os nossos recursos em médicos e remédios."], 1]
+            ],
 
-  23: [ // Lição 18 – Ritos e Tradições
-    ["Qual o significado da dedicação de crianças?", ["Compromisso dos pais de ensinar a criança no caminho de Deus","Dedicação ocorre no batismo de recém-nascidos","Não tem relação com ensinamentos bíblicos"],0],
-    ["O que Jesus instituiu no lugar da Páscoa?", ["A circuncisão","A Santa Ceia","A ordenação"],1],
-    ["O que Cristo disse sobre o casamento?", ["O Criador os fez homem e mulher","Deixará pai e mãe e se unirá à sua mulher","Todas as alternativas estão corretas"],2],
-    ["Que funções Jesus designou para os discípulos?", ["Concedeu riquezas","Designou doze para estar com Ele e enviar a pregar","Apenas para curar doentes"],1]
-  ]
-        };
+            23: [ // Lição 18 – O QUE JESUS ENSINOU SOBRE RITOS E TRADIÇÕES
+              ["Qual o significado da dedicação de crianças? Salmo 127:3; Isaías 8:18.", ["Um compromisso assumido pelos pais de ensinar à criança o caminho de Deus.", "A dedicação dos filhos a Deus ocorre no batismo de recém-nascidos.", "A dedicação de uma criança não tem relação com os ensinamentos bíblicos."], 0],
+              ["O que Jesus instituiu no lugar da Páscoa? João 13:4, 5, 15.", ["A circuncisão.", "A Santa Ceia.", "A ordenação."], 1],
+              ["O que Cristo disse sobre o casamento? Mateus 19:4-6.", ["“O Criador, desde o princípio, os fez homem e mulher”.", "“Deixará o homem pai e mãe e se unirá à sua mulher”.", "Todas as alternativas estão corretas."], 2],
+              ["Que funções Jesus designou para os discípulos? Marcos 3:14.", ["Concedeu riquezas e bens como incentivo à prática do ministério.", "“Designou doze para estarem com Ele e para os enviar a pregar”.", "Separou doze homens apenas para curar os doentes, não para pregar."], 1]
+            ],
+                };
 
         // ------------------ FUNÇÕES ------------------
 
@@ -1014,7 +1022,8 @@ switch (prova) {
             document.getElementById("inicio").style.display = "flex";
             document.getElementById("tela-identificacao").style.display = "none";
             document.getElementById("prova-container").style.display = "none";
-            document.getElementById("resultado").style.display = "none";
+            document.getElementById("resultado").style.display = "none";            document.getElementById("tela-resultados").style.display = "none";
+
         }
 
         function fecharResultados() {
@@ -1065,7 +1074,68 @@ switch (prova) {
                 mostrarMenu();
             }
         });
-    </script>
+    
+
+(function setupDropdownsIOS() {
+    const dropdowns = ["dd-provas", "dd-resultados"]
+        .map(id => document.getElementById(id))
+        .filter(Boolean);
+
+    function closeAll(exceptEl = null) {
+        dropdowns.forEach(d => {
+            if (d !== exceptEl) d.classList.remove("open");
+        });
+    }
+
+    function toggle(el) {
+        const willOpen = !el.classList.contains("open");
+        closeAll(el);
+        if (willOpen) el.classList.add("open");
+        else el.classList.remove("open");
+    }
+
+    // Tap imediato no iPhone (pointerdown cobre touch e mouse)
+    dropdowns.forEach(el => {
+        el.addEventListener("pointerdown", (e) => {
+            // Se tocou dentro da lista (opções), não alterna o dropdown aqui
+            if (e.target.closest(".dropdown-content")) return;
+
+            e.preventDefault(); // evita seleção/hover do iOS
+            e.stopPropagation();
+            toggle(el);
+        });
+    });
+
+    // Clique/toque fora fecha
+    document.addEventListener("pointerdown", () => closeAll(), { passive: true });
+
+    // Bloqueia menu de contexto por pressão longa
+    dropdowns.forEach(el => {
+        el.addEventListener("contextmenu", (e) => e.preventDefault());
+    });
+
+    // Tocar dentro do dropdown não fecha pelo listener global
+    dropdowns.forEach(el => {
+        const menu = el.querySelector(".dropdown-content");
+        if (!menu) return;
+        menu.addEventListener("pointerdown", (e) => {
+            e.stopPropagation();
+        });
+    });
+
+    // Ao escolher uma opção, fecha o dropdown
+    dropdowns.forEach(el => {
+        const menu = el.querySelector(".dropdown-content");
+        if (!menu) return;
+        menu.querySelectorAll("div").forEach(item => {
+            item.addEventListener("pointerdown", () => {
+                el.classList.remove("open");
+            });
+        });
+    });
+})();
+
+</script>
 
 </body>
 
