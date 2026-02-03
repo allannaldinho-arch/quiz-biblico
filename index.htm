@@ -79,6 +79,15 @@
             display: block;
         }
 
+	/*Ajuste extra (se no celular ficar “apertado”)*/
+	@media (max-width: 900px) {
+	.menu-grid { grid-template-columns: repeat(2, 1fr); }
+	}
+
+	@media (max-width: 520px) {
+ 	.menu-grid { grid-template-columns: 1fr; }
+	}
+
         /* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
         #inicio {
            position: fixed;
