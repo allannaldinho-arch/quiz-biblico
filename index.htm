@@ -44,11 +44,6 @@
             font-weight: bold;
             cursor: pointer;
             position: relative;
-        
-            -webkit-tap-highlight-color: transparent;
-            user-select: none;
-            -webkit-user-select: none;
-            touch-action: manipulation;
         }
 
         .menu-item:hover {
@@ -80,12 +75,9 @@
             background: #f0f0f0;
         }
 
-        
-
-        .menu-item.dropdown.open .dropdown-content {
+        .menu-item.dropdown:hover .dropdown-content {
             display: block;
         }
-/* (removido) dropdown por hover não funciona bem no iOS */
         /* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
         #inicio {
            position: fixed;
@@ -305,7 +297,7 @@
     <div id="topbar">
         <div class="menu-item" onclick="mostrarMenu()">Menu Inicial</div>
 
-        <div class="menu-item dropdown" id="dd-provas">
+        <div class="menu-item dropdown">
             Provas ▼
 <div class="dropdown-content">
     <div onclick="mostrarIdentificacao(1)">Prova 1 – A Criação</div>
@@ -335,7 +327,7 @@
 
         </div>
 
-        <div class="menu-item dropdown" id="dd-resultados">
+        <div class="menu-item dropdown">
             Resultados ▼
             <div class="dropdown-content" id="menu-resultados">
                 <div>Nenhum resultado disponível</div>
@@ -1022,8 +1014,7 @@ switch (prova) {
             document.getElementById("inicio").style.display = "flex";
             document.getElementById("tela-identificacao").style.display = "none";
             document.getElementById("prova-container").style.display = "none";
-            document.getElementById("resultado").style.display = "none";            document.getElementById("tela-resultados").style.display = "none";
-
+            document.getElementById("resultado").style.display = "none";
         }
 
         function fecharResultados() {
@@ -1074,68 +1065,7 @@ switch (prova) {
                 mostrarMenu();
             }
         });
-    
-
-(function setupDropdownsIOS() {
-    const dropdowns = ["dd-provas", "dd-resultados"]
-        .map(id => document.getElementById(id))
-        .filter(Boolean);
-
-    function closeAll(exceptEl = null) {
-        dropdowns.forEach(d => {
-            if (d !== exceptEl) d.classList.remove("open");
-        });
-    }
-
-    function toggle(el) {
-        const willOpen = !el.classList.contains("open");
-        closeAll(el);
-        if (willOpen) el.classList.add("open");
-        else el.classList.remove("open");
-    }
-
-    // Tap imediato no iPhone (pointerdown cobre touch e mouse)
-    dropdowns.forEach(el => {
-        el.addEventListener("pointerdown", (e) => {
-            // Se tocou dentro da lista (opções), não alterna o dropdown aqui
-            if (e.target.closest(".dropdown-content")) return;
-
-            e.preventDefault(); // evita seleção/hover do iOS
-            e.stopPropagation();
-            toggle(el);
-        });
-    });
-
-    // Clique/toque fora fecha
-    document.addEventListener("pointerdown", () => closeAll(), { passive: true });
-
-    // Bloqueia menu de contexto por pressão longa
-    dropdowns.forEach(el => {
-        el.addEventListener("contextmenu", (e) => e.preventDefault());
-    });
-
-    // Tocar dentro do dropdown não fecha pelo listener global
-    dropdowns.forEach(el => {
-        const menu = el.querySelector(".dropdown-content");
-        if (!menu) return;
-        menu.addEventListener("pointerdown", (e) => {
-            e.stopPropagation();
-        });
-    });
-
-    // Ao escolher uma opção, fecha o dropdown
-    dropdowns.forEach(el => {
-        const menu = el.querySelector(".dropdown-content");
-        if (!menu) return;
-        menu.querySelectorAll("div").forEach(item => {
-            item.addEventListener("pointerdown", () => {
-                el.classList.remove("open");
-            });
-        });
-    });
-})();
-
-</script>
+    </script>
 
 </body>
 
