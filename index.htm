@@ -79,19 +79,24 @@
             display: block;
         }
 
-        /* MENU PRINCIPAL */
+        /* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
         #inicio {
-            position: fixed;
-            top: 60px;
-            left: 0;
-            width: 100%;
-            height: calc(100% - 60px);
-            background: #f4f6f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            z-index: 9999;
-        }
+           position: fixed;
+           top: 60px;
+           left: 0;
+           width: 100%;
+           height: calc(100% - 60px);
+           background: #f4f6f9;
+
+           display: flex;
+           align-items: flex-start;     /* antes era center */
+           justify-content: center;
+
+           overflow-y: auto;            /* ✅ ativa rolagem */
+          -webkit-overflow-scrolling: touch; /* ✅ rolagem suave no iPhone */
+           padding: 20px 0;             /* dá respiro no topo/baixo */
+           z-index: 9999;
+         }
 
         .menu-box {
             width: 100%;
@@ -99,6 +104,7 @@
             background: #fff;
             padding: 25px;
             border-radius: 14px;
+	    margin: 0 12px; /* evita colar nas bordas no celular */
         }
 
         .menu-grid {
