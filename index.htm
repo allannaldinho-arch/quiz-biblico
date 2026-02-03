@@ -75,10 +75,10 @@
             background: #f0f0f0;
         }
 
-        .menu-item.dropdown:hover .dropdown-content {
+        .menu-item.dropdown.open .dropdown-content {
             display: block;
         }
-        /* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
+/* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
         #inicio {
            position: fixed;
            top: 60px;
@@ -288,6 +288,16 @@
         #tela-resultados .result-box div {
             margin-bottom: 10px;
         }
+    
+
+/* RESPONSIVO (melhora no celular) */
+@media (max-width: 900px) {
+    .menu-grid { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px) {
+    .menu-grid { grid-template-columns: 1fr; }
+}
+
     </style>
 </head>
 
@@ -297,7 +307,7 @@
     <div id="topbar">
         <div class="menu-item" onclick="mostrarMenu()">Menu Inicial</div>
 
-        <div class="menu-item dropdown">
+        <div class="menu-item dropdown" id="dd-provas" onclick="toggleDropdown(event,'dd-provas')">
             Provas ▼
 <div class="dropdown-content">
     <div onclick="mostrarIdentificacao(1)">Prova 1 – A Criação</div>
@@ -327,7 +337,7 @@
 
         </div>
 
-        <div class="menu-item dropdown">
+        <div class="menu-item dropdown" id="dd-resultados" onclick="toggleDropdown(event,'dd-resultados')">
             Resultados ▼
             <div class="dropdown-content" id="menu-resultados">
                 <div>Nenhum resultado disponível</div>
@@ -723,8 +733,37 @@
 
         // ------------------ FUNÇÕES ------------------
 
+// ------------------ DROPDOWN (FUNCIONA NO CELULAR) ------------------
+function toggleDropdown(event, id) {
+    event.stopPropagation(); // evita clique vazar para o document
+    const el = document.getElementById(id);
+
+    // fecha os outros dropdowns
+    document.querySelectorAll(".menu-item.dropdown").forEach(d => {
+        if (d.id !== id) d.classList.remove("open");
+    });
+
+    el.classList.toggle("open");
+}
+
+function fecharDropdowns() {
+    document.querySelectorAll(".menu-item.dropdown").forEach(d => d.classList.remove("open"));
+}
+
+// clicar fora fecha
+document.addEventListener("click", function () {
+    fecharDropdowns();
+});
+
+// não deixa clique dentro do dropdown fechar ele
+document.querySelectorAll(".dropdown-content").forEach(el => {
+    el.addEventListener("click", e => e.stopPropagation());
+});
+
+
         function mostrarIdentificacao(prova) {
-            atualProva = prova;
+            fecharDropdowns();
+atualProva = prova;
             document.getElementById("inicio").style.display = "none";
             document.getElementById("tela-identificacao").style.display = "flex";
 
@@ -1011,13 +1050,20 @@ switch (prova) {
         }
 
         function mostrarMenu() {
-            document.getElementById("inicio").style.display = "flex";
-            document.getElementById("tela-identificacao").style.display = "none";
-            document.getElementById("prova-container").style.display = "none";
-            document.getElementById("resultado").style.display = "none";
-        }
+    fecharDropdowns();
+    document.getElementById("inicio").style.display = "flex";
+    document.getElementById("tela-identificacao").style.display = "none";
+    document.getElementById("prova-container").style.display = "none";
+    document.getElementById("resultado").style.display = "none";
+    document.getElementById("tela-resultados").style.display = "none";
 
-        function fecharResultados() {
+    // volta o scroll do menu inicial para o topo (bom no celular)
+    const inicioEl = document.getElementById("inicio");
+    if (inicioEl) inicioEl.scrollTop = 0;
+}
+
+function fecharResultados() {
+
             document.getElementById("tela-resultados").style.display = "none";
             mostrarMenu();
         }
