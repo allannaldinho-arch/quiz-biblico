@@ -339,30 +339,7 @@
 
         <div class="menu-item dropdown" id="dd-provas">
             Provas ▼
-<div class="dropdown-content">
-    <div onclick="mostrarIdentificacao(1)">Prova 1 – A Criação</div>
-    <div onclick="mostrarIdentificacao(2)">Prova 2 – O Jardim do Éden</div>
-    <div onclick="mostrarIdentificacao(3)">Prova 3 – O Pecado</div>
-    <div onclick="mostrarIdentificacao(4)">Prova 4 – Filhos de Adão e Eva</div>
-    <div onclick="mostrarIdentificacao(5)">Prova 5 – Guerra no Céu</div>
-    <div onclick="mostrarIdentificacao(6)">Prova 6 – Escrituras</div>
-    <div onclick="mostrarIdentificacao(7)">Prova 7 – Salvação</div>
-    <div onclick="mostrarIdentificacao(8)">Prova 8 – Santificação</div>
-    <div onclick="mostrarIdentificacao(9)">Prova 9 – Espírito Santo</div>
-    <div onclick="mostrarIdentificacao(10)">Prova 10 – Oração</div>
-    <div onclick="mostrarIdentificacao(11)">Prova 11 – Perdão</div>
-    <div onclick="mostrarIdentificacao(12)">Prova 12 – Dinheiro</div>
-    <div onclick="mostrarIdentificacao(13)">Prova 13 – Sua Volta</div>
-    <div onclick="mostrarIdentificacao(14)">Prova 14 – Morte</div>
-    <div onclick="mostrarIdentificacao(15)">Prova 15 – Ressurreição</div>
-    <div onclick="mostrarIdentificacao(16)">Prova 16 – Juízo</div>
-    <div onclick="mostrarIdentificacao(17)">Prova 17 – Lei</div>
-    <div onclick="mostrarIdentificacao(18)">Prova 18 – Sábado</div>
-    <div onclick="mostrarIdentificacao(19)">Prova 19 – Igreja</div>
-    <div onclick="mostrarIdentificacao(20)">Prova 20 – Profetas</div>
-    <div onclick="mostrarIdentificacao(21)">Prova 21 – Batismo</div>
-    <div onclick="mostrarIdentificacao(22)">Prova 22 – Cuidado com o Corpo</div>
-    <div onclick="mostrarIdentificacao(23)">Prova 23 – Ritos e Tradições</div>
+<div class="dropdown-content" id="menu-provas-topo"></div>
 </div>
 
         </div>
@@ -378,148 +355,28 @@
     <!-- MENU PRINCIPAL -->
     <div id="inicio">
         <div class="menu-box">
-            <div class="menu-grid">
+            <div class="menu-grid" id="menu-categorias">
+  <div class="menu-card">
+    <h3>ESTUDO MARIA</h3>
+    <p>PROVAS 1 A 5</p>
+    <button onclick="abrirCategoria('maria')">ENTRAR</button>
+  </div>
 
-<div class="menu-card">
-    <h3>Prova 1</h3>
-    <p>A Criação</p>
-    <button onclick="mostrarIdentificacao(1)">INICIAR</button>
+  <div class="menu-card">
+    <h3>ENSINOS DE JESUS</h3>
+    <p>PROVAS 1 A 18</p>
+    <button onclick="abrirCategoria('jesus')">ENTRAR</button>
+  </div>
 </div>
 
-<div class="menu-card">
-    <h3>Prova 2</h3>
-    <p>O Jardim do Éden</p>
-    <button onclick="mostrarIdentificacao(2)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 3</h3>
-    <p>O Pecado</p>
-    <button onclick="mostrarIdentificacao(3)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 4</h3>
-    <p>Os filhos de Adão e Eva</p>
-    <button onclick="mostrarIdentificacao(4)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 5</h3>
-    <p>Guerra no Céu</p>
-    <button onclick="mostrarIdentificacao(5)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 6</h3>
-    <p>O que Jesus ensinou sobre as Escrituras</p>
-    <button onclick="mostrarIdentificacao(6)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 7</h3>
-    <p>O que Jesus ensinou sobre a Salvação</p>
-    <button onclick="mostrarIdentificacao(7)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 8</h3>
-    <p>O que Jesus ensinou sobre a Santificação</p>
-    <button onclick="mostrarIdentificacao(8)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 9</h3>
-    <p>O que Jesus ensinou sobre o Espírito Santo</p>
-    <button onclick="mostrarIdentificacao(9)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 10</h3>
-    <p>O que Jesus ensinou sobre a Oração</p>
-    <button onclick="mostrarIdentificacao(10)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 11</h3>
-    <p>O que Jesus ensinou sobre o Perdão</p>
-    <button onclick="mostrarIdentificacao(11)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 12</h3>
-    <p>O que Jesus ensinou sobre o Dinheiro</p>
-    <button onclick="mostrarIdentificacao(12)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 13</h3>
-    <p>O que Jesus ensinou sobre Sua Volta</p>
-    <button onclick="mostrarIdentificacao(13)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 14</h3>
-    <p>O que Jesus ensinou sobre a Morte</p>
-    <button onclick="mostrarIdentificacao(14)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 15</h3>
-    <p>O que Jesus ensinou sobre a Ressurreição</p>
-    <button onclick="mostrarIdentificacao(15)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 16</h3>
-    <p>O que Jesus ensinou sobre o Juízo</p>
-    <button onclick="mostrarIdentificacao(16)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 17</h3>
-    <p>O que Jesus ensinou sobre a Lei</p>
-    <button onclick="mostrarIdentificacao(17)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 18</h3>
-    <p>O que Jesus ensinou sobre o Sábado</p>
-    <button onclick="mostrarIdentificacao(18)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 19</h3>
-    <p>O que Jesus ensinou sobre a Igreja</p>
-    <button onclick="mostrarIdentificacao(19)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 20</h3>
-    <p>O que Jesus ensinou sobre os Profetas</p>
-    <button onclick="mostrarIdentificacao(20)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 21</h3>
-    <p>O que Jesus ensinou sobre o Batismo</p>
-    <button onclick="mostrarIdentificacao(21)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 22</h3>
-    <p>O que Jesus ensinou sobre o Cuidado com o Corpo</p>
-    <button onclick="mostrarIdentificacao(22)">INICIAR</button>
-</div>
-
-<div class="menu-card">
-    <h3>Prova 23</h3>
-    <p>O que Jesus ensinou sobre Ritos e Tradições</p>
-    <button onclick="mostrarIdentificacao(23)">INICIAR</button>
-</div>
-
-
-            </div>
+<!-- SUBMENU (LISTA DE PROVAS DA CATEGORIA) -->
+<div id="submenu-provas" style="display:none;">
+  <h2 id="titulo-categoria" style="margin-top:0;"></h2>
+  <div class="menu-grid" id="menu-provas-categoria"></div>
+  <div style="margin-top:15px;">
+    <button onclick="voltarCategorias()">VOLTAR</button>
+  </div>
+</div></div>
         </div>
     </div>
 
@@ -567,11 +424,13 @@
 
     <script>
         let inicioTempo;
-        let atualProva = 1;
+        let atualProva = 1; // ID REAL (1..23) ainda usado para buscar em "provas"
+        let provaIdAtual = "";
+        let categoriaAtual = "";
+        let ordemAtual = 0; // ordem dentro da categoria (Maria 1..5 / Jesus 1..18)
         let nomeParticipante = "";
         let resultados = {};
-
-        /* GOOGLE SHEETS (API) */
+/* GOOGLE SHEETS (API) */
         const GOOGLE_SHEETS_URL = "https://script.google.com/macros/s/AKfycbwTQlB-57ZPHr5U6nF2ALF3BkwaVZxG9QzU5duGvUz4WefT6OC4b9eFMu0eRhXvKfsERA/exec";
 
         const provas = {
@@ -760,101 +619,159 @@
               ["O que Cristo disse sobre o casamento? Mateus 19:4-6.", ["“O Criador, desde o princípio, os fez homem e mulher”.", "“Deixará o homem pai e mãe e se unirá à sua mulher”.", "Todas as alternativas estão corretas."], 2],
               ["Que funções Jesus designou para os discípulos? Marcos 3:14.", ["Concedeu riquezas e bens como incentivo à prática do ministério.", "“Designou doze para estarem com Ele e para os enviar a pregar”.", "Separou doze homens apenas para curar os doentes, não para pregar."], 1]
             ],
-                };
+        };
+
+                // ================== CATÁLOGO (ID TÉCNICO) ==================
+// Regra: "id" é imutável; "ordem" pode mudar sem quebrar resultados.
+const PROVAS_CATALOG = [
+    // ESTUDO MARIA (reais 1..5)
+    { id: "maria_criacao",      categoria: "maria", ordem: 1, real: 1, titulo: "A Criação" },
+    { id: "maria_eden",         categoria: "maria", ordem: 2, real: 2, titulo: "O Jardim do Éden" },
+    { id: "maria_pecado",       categoria: "maria", ordem: 3, real: 3, titulo: "O Pecado" },
+    { id: "maria_filhos",       categoria: "maria", ordem: 4, real: 4, titulo: "Filhos de Adão e Eva" },
+    { id: "maria_guerra_ceu",   categoria: "maria", ordem: 5, real: 5, titulo: "Guerra no Céu" },
+
+    // ENSINOS DE JESUS (reais 6..23) - ordem interna 1..18
+    { id: "jesus_escrituras",   categoria: "jesus", ordem: 1,  real: 6,  titulo: "O que Jesus ensinou sobre as Escrituras" },
+    { id: "jesus_salvacao",     categoria: "jesus", ordem: 2,  real: 7,  titulo: "O que Jesus ensinou sobre a Salvação" },
+    { id: "jesus_santificacao", categoria: "jesus", ordem: 3,  real: 8,  titulo: "O que Jesus ensinou sobre a Santificação" },
+    { id: "jesus_espirito",     categoria: "jesus", ordem: 4,  real: 9,  titulo: "O que Jesus ensinou sobre o Espírito Santo" },
+    { id: "jesus_oracao",       categoria: "jesus", ordem: 5,  real: 10, titulo: "O que Jesus ensinou sobre a Oração" },
+    { id: "jesus_perdao",       categoria: "jesus", ordem: 6,  real: 11, titulo: "O que Jesus ensinou sobre o Perdão" },
+    { id: "jesus_dinheiro",     categoria: "jesus", ordem: 7,  real: 12, titulo: "O que Jesus ensinou sobre o Dinheiro" },
+    { id: "jesus_volta",        categoria: "jesus", ordem: 8,  real: 13, titulo: "O que Jesus ensinou sobre Sua Volta" },
+    { id: "jesus_morte",        categoria: "jesus", ordem: 9,  real: 14, titulo: "O que Jesus ensinou sobre a Morte" },
+    { id: "jesus_ressurreicao", categoria: "jesus", ordem: 10, real: 15, titulo: "O que Jesus ensinou sobre a Ressurreição" },
+    { id: "jesus_juizo",        categoria: "jesus", ordem: 11, real: 16, titulo: "O que Jesus ensinou sobre o Juízo" },
+    { id: "jesus_lei",          categoria: "jesus", ordem: 12, real: 17, titulo: "O que Jesus ensinou sobre a Lei" },
+    { id: "jesus_sabado",       categoria: "jesus", ordem: 13, real: 18, titulo: "O que Jesus ensinou sobre o Sábado" },
+    { id: "jesus_igreja",       categoria: "jesus", ordem: 14, real: 19, titulo: "O que Jesus ensinou sobre a Igreja" },
+    { id: "jesus_profetas",     categoria: "jesus", ordem: 15, real: 20, titulo: "O que Jesus ensinou sobre os Profetas" },
+    { id: "jesus_batismo",      categoria: "jesus", ordem: 16, real: 21, titulo: "O que Jesus ensinou sobre o Batismo" },
+    { id: "jesus_corpo",        categoria: "jesus", ordem: 17, real: 22, titulo: "O que Jesus ensinou sobre o Cuidado com o Corpo" },
+    { id: "jesus_ritos",        categoria: "jesus", ordem: 18, real: 23, titulo: "O que Jesus ensinou sobre Ritos e Tradições" },
+];
+
+const CATEGORIAS = {
+    maria: { nome: "ESTUDO MARIA" },
+    jesus: { nome: "ENSINOS DE JESUS" },
+};
+
+function getProvaById(id) {
+    return PROVAS_CATALOG.find(p => p.id === id) || null;
+}
+
+function getProvasByCategoria(cat) {
+    return PROVAS_CATALOG.filter(p => p.categoria === cat).sort((a, b) => a.ordem - b.ordem);
+}
+
+function getProvaByReal(n) {
+    return PROVAS_CATALOG.find(p => p.real === n) || null;
+}
+
+function labelProva(meta) {
+    // meta: {categoria, ordem, titulo}
+    const catNome = (CATEGORIAS[meta.categoria] && CATEGORIAS[meta.categoria].nome) ? CATEGORIAS[meta.categoria].nome : meta.categoria;
+    return `${catNome} — Prova ${meta.ordem} – ${meta.titulo}`;
+}
+
+// ========= UI: renderiza menus (HTML fica limpo) =========
+function renderDropdownProvas() {
+    const dd = document.getElementById("menu-provas-topo");
+    if (!dd) return;
+
+    dd.innerHTML = "";
+
+    ["maria", "jesus"].forEach(cat => {
+        const header = document.createElement("div");
+        header.innerText = CATEGORIAS[cat].nome;
+        header.style.fontWeight = "bold";
+        header.style.background = "#f5f5f5";
+        dd.appendChild(header);
+
+        getProvasByCategoria(cat).forEach(p => {
+            const item = document.createElement("div");
+            // no topo mostramos "Prova X" (ordem interna)
+            item.innerText = `Prova ${p.ordem} – ${p.titulo}`;
+            item.onclick = () => mostrarIdentificacaoPorId(p.id);
+            dd.appendChild(item);
+        });
+    });
+}
+
+function abrirCategoria(cat) {
+    const menuCategorias = document.getElementById("menu-categorias");
+    const submenu = document.getElementById("submenu-provas");
+    const titulo = document.getElementById("titulo-categoria");
+    const grid = document.getElementById("menu-provas-categoria");
+
+    if (!menuCategorias || !submenu || !titulo || !grid) return;
+
+    menuCategorias.style.display = "none";
+    submenu.style.display = "block";
+    titulo.innerText = CATEGORIAS[cat].nome;
+
+    grid.innerHTML = "";
+    getProvasByCategoria(cat).forEach(p => {
+        const card = document.createElement("div");
+        card.className = "menu-card";
+        card.innerHTML = `
+            <h3>Prova ${p.ordem}</h3>
+            <p>${p.titulo}</p>
+            <button onclick="mostrarIdentificacaoPorId('${p.id}')">INICIAR</button>
+        `;
+        grid.appendChild(card);
+    });
+}
+
+function voltarCategorias() {
+    const menuCategorias = document.getElementById("menu-categorias");
+    const submenu = document.getElementById("submenu-provas");
+    if (!menuCategorias || !submenu) return;
+
+    submenu.style.display = "none";
+    menuCategorias.style.display = "grid";
+}
+
+// ========= Compatibilidade (se ainda clicar em Prova 1..23) =========
+function mostrarIdentificacaoPorNumero(provaReal) {
+    const meta = getProvaByReal(provaReal);
+    if (!meta) return;
+    mostrarIdentificacaoPorId(meta.id);
+}
+
+function mostrarIdentificacaoPorId(provaId) {
+    const meta = getProvaById(provaId);
+    if (!meta) {
+        alert("Prova não encontrada.");
+        return;
+    }
+
+    // estado global
+    provaIdAtual = meta.id;
+    categoriaAtual = meta.categoria;
+    ordemAtual = meta.ordem;
+    atualProva = meta.real;
+
+    document.getElementById("inicio").style.display = "none";
+    document.getElementById("tela-identificacao").style.display = "flex";
+
+    document.getElementById("id-titulo").innerText = labelProva(meta);
+
+    setTimeout(() => {
+        document.getElementById("nome-participante").focus();
+    }, 0);
+}
 
         // ------------------ FUNÇÕES ------------------
 
         function mostrarIdentificacao(prova) {
-            atualProva = prova;
-            document.getElementById("inicio").style.display = "none";
-            document.getElementById("tela-identificacao").style.display = "flex";
-
-            // Mapeamento completo das provas
-            let titulo = "";
-switch (prova) {
-    case 1:
-        titulo = "A Criação";
-        break;
-    case 2:
-        titulo = "O Jardim do Éden";
-        break;
-    case 3:
-        titulo = "O Pecado";
-        break;
-    case 4:
-        titulo = "Os filhos de Adão e Eva";
-        break;
-    case 5:
-        titulo = "Guerra no Céu";
-        break;
-    case 6:
-        titulo = "O que Jesus ensinou sobre as Escrituras";
-        break;
-    case 7:
-        titulo = "O que Jesus ensinou sobre a Salvação";
-        break;
-    case 8:
-        titulo = "O que Jesus ensinou sobre a Santificação";
-        break;
-    case 9:
-        titulo = "O que Jesus ensinou sobre o Espírito Santo";
-        break;
-    case 10:
-        titulo = "O que Jesus ensinou sobre a Oração";
-        break;
-    case 11:
-        titulo = "O que Jesus ensinou sobre o Perdão";
-        break;
-    case 12:
-        titulo = "O que Jesus ensinou sobre o Dinheiro";
-        break;
-    case 13:
-        titulo = "O que Jesus ensinou sobre Sua Volta";
-        break;
-    case 14:
-        titulo = "O que Jesus ensinou sobre a Morte";
-        break;
-    case 15:
-        titulo = "O que Jesus ensinou sobre a Ressurreição";
-        break;
-    case 16:
-        titulo = "O que Jesus ensinou sobre o Juízo";
-        break;
-    case 17:
-        titulo = "O que Jesus ensinou sobre a Lei";
-        break;
-    case 18:
-        titulo = "O que Jesus ensinou sobre o Sábado";
-        break;
-    case 19:
-        titulo = "O que Jesus ensinou sobre a Igreja";
-        break;
-    case 20:
-        titulo = "O que Jesus ensinou sobre os Profetas";
-        break;
-    case 21:
-        titulo = "O que Jesus ensinou sobre o Batismo";
-        break;
-    case 22:
-        titulo = "O que Jesus ensinou sobre o Cuidado com o Corpo";
-        break;
-    case 23:
-        titulo = "O que Jesus ensinou sobre Ritos e Tradições";
-        break;
-    default:
-        titulo = "Prova";
-        break;
+    // Mantém compatibilidade com chamadas antigas (1..23)
+    // Agora o fluxo padrão é por ID técnico (provaId).
+    mostrarIdentificacaoPorNumero(prova);
 }
 
-            document.getElementById("id-titulo").innerText = `Prova ${prova} – ${titulo}`;
-
-            // 🔹 FOCO AUTOMÁTICO NO CAMPO NOME
-            setTimeout(() => {
-                document.getElementById("nome-participante").focus();
-            }, 0);
-        }
-
-        function iniciarProva() {
+function iniciarProva() {
             let nome = document.getElementById("nome-participante").value.trim();
             if (nome === "") {
                 alert("Digite seu nome antes de iniciar a prova.");
@@ -922,21 +839,36 @@ switch (prova) {
             const tempo = Math.floor((Date.now() - inicioTempo) / 1000);
             const dataAtual = new Date().toLocaleString();
 
-            if (!resultados[`Prova ${atualProva}`]) {
-                resultados[`Prova ${atualProva}`] = {};
+            const meta = getProvaById(provaIdAtual) || getProvaByReal(atualProva);
+            const provaLabel = meta ? labelProva(meta) : `Prova ${atualProva}`;
+
+            if (!resultados[provaIdAtual || provaLabel]) {
+                resultados[provaIdAtual || provaLabel] = {};
             }
 
-            resultados[`Prova ${atualProva}`][nomeParticipante] = {
+            resultados[provaIdAtual || provaLabel][nomeParticipante] = {
                 respostas,
                 nota,
                 tempo,
-                data: dataAtual
+                data: dataAtual,
+                provaId: provaIdAtual || null,
+                categoria: meta ? meta.categoria : null,
+                ordem: meta ? meta.ordem : null,
+                titulo: meta ? meta.titulo : null,
+                provaReal: atualProva
             };
 
             /* ===== ENVIO PARA GOOGLE SHEETS ===== */
+            // Mantemos o campo "prova" como TEXTO amigável (compatível com planilha atual),
+            // e enviamos também "provaId" para identificação técnica.
             const payload = {
                 data: dataAtual,
-                prova: `Prova ${atualProva}`,
+                prova: provaLabel,
+                provaId: provaIdAtual || null,
+                provaReal: atualProva,
+                categoria: meta ? meta.categoria : null,
+                ordem: meta ? meta.ordem : null,
+                titulo: meta ? meta.titulo : null,
                 participante: nomeParticipante,
                 nota: nota,
                 tempo: tempo,
@@ -947,7 +879,7 @@ switch (prova) {
             /* =================================== */
 
             atualizarMenuResultados();
-            mostrarResultadoIndividual(`Prova ${atualProva}`, nomeParticipante);
+            mostrarResultadoIndividual((provaIdAtual || provaLabel), nomeParticipante);
         }
 
         function enviarParaGoogleSheets(dados) {
@@ -976,7 +908,9 @@ switch (prova) {
             for (let prova in resultados) {
                 for (let participante in resultados[prova]) {
                     const div = document.createElement("div");
-                    div.innerText = `${prova} – ${participante}`;
+                    const d = resultados[prova][participante];
+                    const label = d && d.provaId ? (labelProva(getProvaById(d.provaId) || d) ) : prova;
+                    div.innerText = `${label} – ${participante}`;
                     div.style.cursor = "pointer";
                     div.onclick = () => mostrarResultadoCompleto(prova, participante);
                     menu.appendChild(div);
@@ -987,7 +921,9 @@ switch (prova) {
         function mostrarResultadoIndividual(prova, participante) {
             const dados = resultados[prova][participante];
             const status = dados.nota >= 7 ? "APROVADO" : "REPROVADO";
-            document.getElementById("res-title").innerText = `Resultado — ${prova}`;
+            const dmeta = dados.provaId ? (getProvaById(dados.provaId) || dados) : null;
+            const provaLabel = dmeta ? labelProva(dmeta) : prova;
+            document.getElementById("res-title").innerText = `Resultado — ${provaLabel}`;
             document.getElementById("res-participante").innerText = `Participante: ${participante}`;
             document.getElementById("res-nota").innerText = dados.nota; // somente número de acertos
             document.getElementById("res-tempo").innerText = `Tempo: ${dados.tempo} segundos`;
@@ -998,9 +934,19 @@ switch (prova) {
 
         function mostrarResultadoCompleto(prova, participante) {
             const dados = resultados[prova][participante];
-            const provaAtual = provas[parseInt(prova.split(" ")[1])]; // pega as questões
+const provaIdReal = dados.provaReal || (function(){
+    // compatibilidade com formato antigo "Prova 7" etc
+    const m = String(prova).match(/\bProva\s+(\d+)/i);
+    if (m) return parseInt(m[1], 10);
+
+    // se for chave técnica (id), busca no catálogo
+    const meta = getProvaById(prova);
+    return meta ? meta.real : 1;
+})();
+const provaAtual = provas[provaIdReal]; // pega as questões
             const listaResultados = document.getElementById("lista-resultados");
-            listaResultados.innerHTML = `<h3>${prova} – ${participante}</h3>`;
+            const labelCab = (dados.provaId && (getProvaById(dados.provaId) || dados)) ? labelProva(getProvaById(dados.provaId) || dados) : prova;
+            listaResultados.innerHTML = `<h3>${labelCab} – ${participante}</h3>`;
 
             provaAtual.forEach((questao, i) => {
                 const numero = i + 1;
@@ -1051,27 +997,30 @@ switch (prova) {
         }
         
 function proximaProva() {
-    // acha a maior prova existente em "provas"
-    var maxProva = 0;
-    for (var k in provas) {
-        if (provas.hasOwnProperty(k)) {
-            var n = parseInt(k, 10);
-            if (n > maxProva) maxProva = n;
-        }
+    // Se não há prova atual definida por ID, tenta derivar do número real
+    if (!provaIdAtual) {
+        const m = getProvaByReal(atualProva);
+        if (m) provaIdAtual = m.id;
     }
 
-    var prox = atualProva + 1;
-
-    if (prox > maxProva) {
-        alert("Você já está na última prova.");
+    const atualMeta = getProvaById(provaIdAtual);
+    if (!atualMeta) {
+        alert("Não foi possível identificar a próxima prova.");
         return;
     }
 
-    // fecha a tela de resultado e abre a próxima prova no fluxo normal
-    document.getElementById("resultado").style.display = "none";
-    mostrarIdentificacao(prox);
+    const lista = getProvasByCategoria(atualMeta.categoria);
+    const idx = lista.findIndex(p => p.id === atualMeta.id);
 
-    // mantém o nome preenchido
+    if (idx < 0 || idx === lista.length - 1) {
+        alert("Você já está na última prova dessa categoria.");
+        return;
+    }
+
+    const prox = lista[idx + 1];
+
+    document.getElementById("resultado").style.display = "none";
+    mostrarIdentificacaoPorId(prox.id);
     document.getElementById("nome-participante").value = (nomeParticipante || "");
 }
 
@@ -1079,9 +1028,18 @@ function proximaProva() {
             document.getElementById("inicio").style.display = "flex";
             document.getElementById("tela-identificacao").style.display = "none";
             document.getElementById("prova-container").style.display = "none";
-            document.getElementById("resultado").style.display = "none";            document.getElementById("tela-resultados").style.display = "none";
+            document.getElementById("resultado").style.display = "none";
+            document.getElementById("tela-resultados").style.display = "none";
 
+            // Se estava dentro do submenu de provas por categoria, volta para as categorias
+            const submenu = document.getElementById("submenu-provas");
+            const menuCat = document.getElementById("menu-categorias");
+            if (submenu && menuCat) {
+                submenu.style.display = "none";
+                menuCat.style.display = "grid";
+            }
         }
+
 
         function fecharResultados() {
             document.getElementById("tela-resultados").style.display = "none";
@@ -1104,13 +1062,33 @@ function proximaProva() {
                     resultados = {};
 
                     dados.forEach(item => {
-                        if (!resultados[item.prova]) resultados[item.prova] = {};
+                        const chave = item.provaId || item.prova;
+                        if (!resultados[chave]) resultados[chave] = {};
 
-                        resultados[item.prova][item.participante] = {
+                        resultados[item.provaId || item.prova][item.participante] = {
                             nota: item.nota,
                             tempo: item.tempo,
                             data: item.data,
-                            respostas: item.respostas || {} // já vem objeto
+                            respostas: item.respostas || {},
+
+                            // novos campos (podem não existir em resultados antigos)
+                            provaId: item.provaId || (function(){
+                                // tenta derivar pelo texto "Prova X" (quando era numérico)
+                                const m = String(item.prova).match(/\bProva\s+(\d+)/i);
+                                if (m) {
+                                    const real = parseInt(m[1], 10);
+                                    const meta = getProvaByReal(real);
+                                    return meta ? meta.id : null;
+                                }
+                                return null;
+                            })(),
+                            provaReal: item.provaReal || (function(){
+                                const m = String(item.prova).match(/\bProva\s+(\d+)/i);
+                                return m ? parseInt(m[1], 10) : null;
+                            })(),
+                            categoria: item.categoria || null,
+                            ordem: item.ordem || null,
+                            titulo: item.titulo || null
                         };
                     });
 
@@ -1122,6 +1100,7 @@ function proximaProva() {
         }
 
         window.onload = function() {
+            renderDropdownProvas();
             carregarResultadosDoSheets();
         };
 
