@@ -550,8 +550,9 @@
             <div class="result-text" id="res-tempo">Tempo: 0 segundos</div>
             <div class="result-text" id="res-status">Status: REPROVADO</div>
             <div class="result-text" id="res-msg">Você não atingiu a nota mínima.</div>
-            <button class="result-btn" onclick="refazerProva()">REFAZER ESTA PROVA</button><br>
-            <button class="result-btn" onclick="mostrarMenu()">VOLTAR AO MENU PRINCIPAL</button>
+            <button class="result-btn" onclick="refazerProva()">REFAZER A PROVA</button><br>
+            <button class="result-btn" onclick="proximaProva()">PRÓXIMA PROVA</button><br>
+            <button class="result-btn" onclick="mostrarMenu()">MENU PRINCIPAL</button>
         </div>
     </div>
 
@@ -1042,13 +1043,37 @@ switch (prova) {
             document.getElementById("tela-resultados").style.display = "flex";
         }
 
-
         function refazerProva() {
             document.getElementById("resultado").style.display = "none";
             document.getElementById("prova-container").style.display = "none";
             document.getElementById("tela-identificacao").style.display = "flex";
             document.getElementById("nome-participante").value = "";
         }
+        
+function proximaProva() {
+    // acha a maior prova existente em "provas"
+    var maxProva = 0;
+    for (var k in provas) {
+        if (provas.hasOwnProperty(k)) {
+            var n = parseInt(k, 10);
+            if (n > maxProva) maxProva = n;
+        }
+    }
+
+    var prox = atualProva + 1;
+
+    if (prox > maxProva) {
+        alert("Você já está na última prova.");
+        return;
+    }
+
+    // fecha a tela de resultado e abre a próxima prova no fluxo normal
+    document.getElementById("resultado").style.display = "none";
+    mostrarIdentificacao(prox);
+
+    // mantém o nome preenchido
+    document.getElementById("nome-participante").value = (nomeParticipante || "");
+}
 
         function mostrarMenu() {
             document.getElementById("inicio").style.display = "flex";
