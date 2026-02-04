@@ -70,9 +70,8 @@
         -webkit-overflow-scrolling: touch;
         max-height: calc(100vh - 80px);
 
-    z-index: 10001;
+        z-index: 10001;
 }
-       
 
         .dropdown-content div {
             padding: 12px;
@@ -84,11 +83,10 @@
             background: #f0f0f0;
         }
 
-        
-
         .menu-item.dropdown.open .dropdown-content {
             display: block;
         }
+        
 /* (removido) dropdown por hover não funciona bem no iOS */
         /* MENU PRINCIPAL COM ROLAGEM DE PAGINA */
         #inicio {
@@ -300,6 +298,36 @@
         #tela-resultados .result-box div {
             margin-bottom: 10px;
         }
+        
+        @media (max-width: 768px) {
+  .menu-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .menu-box {
+    padding: 16px;
+  }
+
+  .menu-card {
+    padding: 14px;
+  }
+
+  .menu-card p {
+    font-size: 13px;
+  }
+
+  button {
+    font-size: 15px;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 420px) {
+  .menu-grid {
+    grid-template-columns: 1fr;
+  }
+}
+    
     </style>
 </head>
 
