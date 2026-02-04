@@ -55,20 +55,24 @@
             text-decoration: underline;
         }
 
-        /* DROPDOWN */
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 0;
-            background: #fff;
-            min-width: 250px;
-            /* aumenta para acomodar respostas longas */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-            border-radius: 6px;
-            overflow: hidden;
-            z-index: 10001;
-        }
+        /* SCROL MENU  */
+       .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        background: #fff;
+        min-width: 250px;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 6px;
+
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        max-height: calc(100vh - 80px);
+
+    z-index: 10001;
+}
+       
 
         .dropdown-content div {
             padding: 12px;
